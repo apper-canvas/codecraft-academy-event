@@ -70,27 +70,16 @@ const CourseDetail = () => {
         }
     };
 
-const handleLessonClick = async (lesson) => {
-        try {
-            // Validate lesson exists and is accessible - handle both Id and id fields for compatibility
-            const lessonId = lesson?.Id || lesson?.id;
-            if (!lesson || !lessonId) {
-                toast.error('Invalid lesson selected');
-                return;
-            }
-
-            // Check if lesson exists in the service
-            const lessonExists = await lessonService.getById(lessonId).catch(() => null);
-            if (!lessonExists) {
-                toast.error('This lesson is not available. Please try another lesson or contact support.');
-                return;
-            }
-
-            navigate(`/course/${courseId}/lesson/${lessonId}`);
-        } catch (error) {
-            console.error('Error navigating to lesson:', error);
-            toast.error('Unable to access this lesson. Please try again or contact support.');
+const handleLessonClick = (lesson) => {
+        // Validate lesson exists - handle both Id and id fields for compatibility
+        const lessonId = lesson?.Id || lesson?.id;
+        if (!lesson || !lessonId) {
+            toast.error('Invalid lesson selected');
+            return;
         }
+
+        // Navigate to lesson - let LessonView handle lesson loading and validation
+        navigate(`/course/${courseId}/lesson/${lessonId}`);
     };
 
     if (isLoading) {
