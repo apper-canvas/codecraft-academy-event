@@ -11,10 +11,30 @@ const lessonService = {
 
 async getById(id) {
         await delay(200);
-        const lesson = lessonsData.find(l => parseInt(l.id) === parseInt(id));
-        if (!lesson) {
-            throw new Error("Lesson not found");
+        
+        // Validate input
+        if (!id) {
+            throw new Error("Lesson ID is required");
         }
+        
+        // Convert to integer for consistent comparison
+        const lessonId = parseInt(id);
+        if (isNaN(lessonId)) {
+            throw new Error(`Invalid lesson ID format: ${id}`);
+        }
+        
+        // Find lesson with detailed logging
+        const lesson = lessonsData.find(l => {
+            const currentLessonId = parseInt(l.id);
+            return currentLessonId === lessonId;
+        });
+        
+        if (!lesson) {
+            // Provide detailed error information for debugging
+            const availableIds = lessonsData.map(l => l.id).join(', ');
+            throw new Error(`Lesson with ID ${lessonId} not found. Available lesson IDs: [${availableIds}]`);
+        }
+        
         return { ...lesson };
     },
 
