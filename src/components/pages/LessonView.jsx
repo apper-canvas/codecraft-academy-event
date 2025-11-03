@@ -22,23 +22,27 @@ const LessonView = () => {
     const [error, setError] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(true);
 
-    const loadData = async () => {
+const loadData = async () => {
         try {
             setIsLoading(true);
             setError(null);
             
             const [courseData, lessonData, progressData] = await Promise.all([
-                courseService.getById(courseId),
-                lessonService.getById(lessonId),
-                progressService.getByCourseId(courseId)
+                courseService.getById(parseInt(courseId)),
+                lessonService.getById(parseInt(lessonId)),
+                progressService.getByCourseId(parseInt(courseId))
             ]);
+            
+            if (!lessonData) {
+                throw new Error("Lesson not found");
+            }
             
             setCourse(courseData);
             setCurrentLesson(lessonData);
             setUserProgress(progressData);
             
         } catch (err) {
-            setError(err.message);
+            setError(err.message || "Failed to load lesson");
             toast.error("Failed to load lesson");
         } finally {
             setIsLoading(false);
@@ -59,11 +63,11 @@ const LessonView = () => {
         }
     };
 
-    useEffect(() => {
+useEffect(() => {
         if (courseId && lessonId) {
             loadData();
         }
-    }, [courseId, lessonId]);
+    }, [courseId, lessonId, loadData]);
 
     const getAllLessons = () => {
         if (!course?.chapters) return [];

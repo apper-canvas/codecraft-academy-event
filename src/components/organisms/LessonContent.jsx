@@ -25,7 +25,7 @@ const LessonContent = ({
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [userAnswers, setUserAnswers] = useState({});
 
-    useEffect(() => {
+useEffect(() => {
         if (lesson) {
             setCurrentCode(lesson.codeExample || "");
             setShowQuiz(false);
@@ -33,7 +33,7 @@ const LessonContent = ({
             setCurrentQuestionIndex(0);
             setUserAnswers({});
         }
-    }, [lesson?.id]);
+    }, [lesson?.Id]);
 
     if (!lesson) {
         return (
