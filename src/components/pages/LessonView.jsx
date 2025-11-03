@@ -29,7 +29,7 @@ const loadData = async () => {
             setIsLoading(true);
             setError(null);
             
-            const [courseData, lessonData, progressData] = await Promise.all([
+const [courseData, lessonData, progressData] = await Promise.all([
                 courseService.getById(parseInt(courseId)),
                 lessonService.getById(parseInt(lessonId)),
                 progressService.getByCourseId(parseInt(courseId))
@@ -81,7 +81,7 @@ useEffect(() => {
 
     const getCurrentLessonIndex = () => {
         const allLessons = getAllLessons();
-        return allLessons.findIndex(lesson => lesson.id === lessonId);
+return allLessons.findIndex(lesson => lesson.id === parseInt(lessonId));
 };
 
     const getNextLesson = () => {

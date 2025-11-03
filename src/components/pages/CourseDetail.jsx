@@ -269,7 +269,7 @@ const handleLessonClick = (lesson) => {
                                 <div className="p-6">
 <div className="space-y-3">
 {chapter.lessons?.map((lesson, lessonIndex) => {
-                                            const lessonId = lesson?.Id || lesson?.id;
+const lessonId = lesson?.id;
                                             const isCompleted = userProgress?.completedLessons?.includes(lessonId);
                                             const isCurrent = userProgress?.lastAccessedLesson === lesson.id;
                                             
@@ -280,7 +280,7 @@ const handleLessonClick = (lesson) => {
                                             
                                             return (
                                                 <motion.button
-key={lesson?.Id || lesson?.id}
+key={lesson?.id}
                                                     onClick={() => handleLessonClick(lesson)}
                                                     className={cn(
                                                         "w-full text-left p-4 rounded-xl transition-all duration-200 flex items-center space-x-4 group",
@@ -306,7 +306,7 @@ key={lesson?.Id || lesson?.id}
                                                     </div>
                                                     <div className="flex-1">
                                                         <h4 className="font-medium">{lesson.title}</h4>
-{!(lesson?.Id || lesson?.id) && (
+{!lesson?.id && (
                                                             <span className="text-xs text-gray-400">
                                                                 Coming soon
                                                             </span>

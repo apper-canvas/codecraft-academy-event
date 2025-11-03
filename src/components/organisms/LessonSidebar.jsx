@@ -74,11 +74,11 @@ const isLessonCurrent = (lessonId) => {
                                     </h3>
 <div className="space-y-1">
                                         {chapter.lessons?.map((lesson, lessonIndex) => {
-                                            const isCompleted = isLessonCompleted(lesson.Id);
-                                            const isCurrent = isLessonCurrent(lesson.Id);
+const isCompleted = isLessonCompleted(lesson.id);
+                                            const isCurrent = isLessonCurrent(lesson.id);
                                             return (
 <motion.button
-                                                    key={lesson.Id}
+key={lesson.id}
                                                     onClick={() => onLessonClick(lesson)}
                                                     className={cn(
                                                         "w-full text-left px-3 py-2 rounded-lg transition-all duration-200 flex items-center space-x-3",
@@ -160,12 +160,12 @@ const isLessonCurrent = (lessonId) => {
                                             Chapter {chapterIndex + 1}: {chapter.title}
                                         </h3>
 <div className="space-y-1">
-                                            {chapter.lessons?.map((lesson, lessonIndex) => {
-                                                const isCompleted = isLessonCompleted(lesson.Id);
-                                                const isCurrent = isLessonCurrent(lesson.Id);
+{chapter.lessons?.map((lesson, lessonIndex) => {
+                                                const isCompleted = isLessonCompleted(lesson.id);
+                                                const isCurrent = isLessonCurrent(lesson.id);
                                                 return (
 <button
-                                                        key={lesson.Id}
+                                                        key={lesson.id}
                                                         onClick={() => {
                                                             onLessonClick(lesson);
                                                             onToggle();

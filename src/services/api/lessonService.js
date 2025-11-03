@@ -24,14 +24,14 @@ async getById(id) {
         }
         
         // Find lesson with detailed validation - use Id field to match lesson data structure
-        const lesson = lessonsData.find(l => {
-            const currentLessonId = parseInt(l.Id, 10);
+const lesson = lessonsData.find(l => {
+            const currentLessonId = parseInt(l.id, 10);
             return currentLessonId === lessonId;
         });
         
         if (!lesson) {
             // Provide detailed error information for debugging
-            const availableIds = lessonsData.map(l => l.Id).join(', ');
+const availableIds = lessonsData.map(l => l.id).join(', ');
             throw new Error(`Lesson with ID ${lessonId} not found. Available lesson IDs: [${availableIds}]`);
         }
         
