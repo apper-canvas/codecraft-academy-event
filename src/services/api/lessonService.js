@@ -18,14 +18,14 @@ async getById(id) {
         }
         
         // Convert to integer for consistent comparison
-        const lessonId = parseInt(id);
+const lessonId = parseInt(id, 10);
         if (isNaN(lessonId)) {
             throw new Error(`Invalid lesson ID format: ${id}`);
         }
         
         // Find lesson with detailed logging
         const lesson = lessonsData.find(l => {
-            const currentLessonId = parseInt(l.id);
+const currentLessonId = parseInt(l.id, 10);
             return currentLessonId === lessonId;
         });
         

@@ -12,7 +12,9 @@ import lessonService from "@/services/api/lessonService";
 import progressService from "@/services/api/progressService";
 
 const LessonView = () => {
-    const { courseId, lessonId } = useParams();
+const { courseId: courseIdParam, lessonId: lessonIdParam } = useParams();
+    const courseId = parseInt(courseIdParam);
+    const lessonId = parseInt(lessonIdParam);
     const navigate = useNavigate();
     
     const [course, setCourse] = useState(null);
@@ -67,7 +69,7 @@ useEffect(() => {
         if (courseId && lessonId) {
             loadData();
         }
-    }, [courseId, lessonId, loadData]);
+}, [courseId, lessonId, loadData]);
 
     const getAllLessons = () => {
         if (!course?.chapters) return [];
@@ -80,7 +82,7 @@ useEffect(() => {
     const getCurrentLessonIndex = () => {
         const allLessons = getAllLessons();
         return allLessons.findIndex(lesson => lesson.id === lessonId);
-    };
+};
 
     const getNextLesson = () => {
         const allLessons = getAllLessons();

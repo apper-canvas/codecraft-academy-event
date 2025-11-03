@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
+import React from "react";
 import ApperIcon from "@/components/ApperIcon";
+import { cn } from "@/utils/cn";
 
 const LessonSidebar = ({ 
     course,
@@ -25,7 +26,7 @@ const LessonSidebar = ({
         return completedLessons.includes(lessonId);
     };
 
-    const isLessonCurrent = (lessonId) => {
+const isLessonCurrent = (lessonId) => {
         return currentLessonId === lessonId;
     };
 
