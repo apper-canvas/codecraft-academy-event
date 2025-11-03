@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "userId": "user-1",
+    "courseId": "1",
+    "completedLessons": ["1", "2"],
+    "quizScores": {
+      "1": 100,
+      "2": 85
+    },
+    "lastAccessedLesson": "2",
+    "startedAt": "2024-01-15T10:30:00Z",
+    "completionPercentage": 22
+  },
+  {
+    "id": "2",
+    "userId": "user-1", 
+    "courseId": "3",
+    "completedLessons": ["19", "20", "21", "22", "23"],
+    "quizScores": {
+      "19": 95,
+      "20": 100,
+      "21": 90,
+      "22": 88,
+      "23": 92
+    },
+    "lastAccessedLesson": "23",
+    "startedAt": "2024-01-10T08:15:00Z",
+    "completionPercentage": 56
+  },
+  {
+    "id": "3",
+    "userId": "user-1",
+    "courseId": "2", 
+    "completedLessons": ["10", "11", "12", "13", "14", "15", "16", "17", "18"],
+    "quizScores": {
+      "10": 100,
+      "11": 95,
+      "12": 88,
+      "13": 92,
+      "14": 90,
+      "15": 96,
+      "16": 100,
+      "17": 89,
+      "18": 94
+    },
+    "lastAccessedLesson": "18",
+    "startedAt": "2024-01-05T14:20:00Z",
+    "completionPercentage": 100
+  },
+  {
+    "id": "4",
+    "userId": "user-1",
+    "courseId": "4",
+    "completedLessons": ["28"],
+    "quizScores": {
+      "28": 78
+    },
+    "lastAccessedLesson": "28",
+    "startedAt": "2024-01-20T16:45:00Z", 
+    "completionPercentage": 11
+  }
+]

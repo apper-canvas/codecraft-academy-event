@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "title": "What is JavaScript?",
+    "content": "# What is JavaScript?\n\nJavaScript is a high-level, interpreted programming language that runs in web browsers and server environments. It's the language that makes web pages interactive and dynamic.\n\n## Key Features of JavaScript\n\n- **Dynamic Typing**: Variables don't need explicit type declarations\n- **First-class Functions**: Functions can be assigned to variables and passed around\n- **Prototype-based**: Objects can inherit directly from other objects\n- **Event-driven**: Responds to user interactions and system events\n\n## Where JavaScript Runs\n\nJavaScript originally ran only in web browsers, but now it runs everywhere:\n- Web browsers (Chrome, Firefox, Safari, Edge)\n- Server-side with Node.js\n- Mobile apps with React Native\n- Desktop apps with Electron\n\n## Your First JavaScript Program\n\nLet's start with the classic \"Hello, World!\" example. This program displays a message in the browser's console.",
+    "codeExample": "// Your first JavaScript program\nconsole.log('Hello, World!');\n\n// Variables in JavaScript\nlet message = 'Welcome to JavaScript!';\nconsole.log(message);\n\n// Basic math operations\nlet x = 10;\nlet y = 5;\nconsole.log('Sum:', x + y);\nconsole.log('Product:', x * y);",
+    "quiz": {
+      "id": "q1",
+      "questions": [
+        {
+          "id": "q1-1",
+          "type": "multiple-choice",
+          "prompt": "What does JavaScript primarily do on web pages?",
+          "options": ["Style the appearance", "Add interactivity", "Structure the content", "Manage the server"],
+          "correctAnswer": "Add interactivity",
+          "explanation": "JavaScript is responsible for adding interactivity and dynamic behavior to web pages. HTML structures content, CSS handles styling, and server technologies manage the backend."
+        }
+      ]
+    },
+    "order": 1
+  },
+  {
+    "id": "2", 
+    "title": "Variables and Data Types",
+    "content": "# Variables and Data Types\n\nVariables are containers for storing data values. In JavaScript, you can create variables using `let`, `const`, or `var` keywords.\n\n## Variable Declaration\n\n- **let**: Creates a variable that can be reassigned\n- **const**: Creates a variable that cannot be reassigned (constant)\n- **var**: Older way to create variables (avoid using)\n\n## JavaScript Data Types\n\nJavaScript has several built-in data types:\n\n### Primitive Types\n- **String**: Text data (\"hello\", 'world')\n- **Number**: Numeric data (42, 3.14, -7)\n- **Boolean**: True or false values\n- **Undefined**: Variable declared but not assigned\n- **Null**: Intentionally empty value\n\n### Complex Types\n- **Object**: Collections of key-value pairs\n- **Array**: Ordered lists of values\n- **Function**: Reusable blocks of code",
+    "codeExample": "// Variable declarations\nlet name = 'Alice';           // String\nlet age = 25;                 // Number  \nlet isStudent = true;         // Boolean\nlet address;                  // Undefined\nlet middleName = null;        // Null\n\n// Constants cannot be reassigned\nconst PI = 3.14159;\nconst GREETING = 'Hello!';\n\n// Check data types\nconsole.log(typeof name);      // \"string\"\nconsole.log(typeof age);       // \"number\"\nconsole.log(typeof isStudent); // \"boolean\"\nconsole.log(typeof address);   // \"undefined\"\n\n// Variable reassignment\nname = 'Bob';  // This works with let\nage = 26;      // This also works\n\nconsole.log(name, age);",
+    "quiz": {
+      "id": "q2",
+      "questions": [
+        {
+          "id": "q2-1", 
+          "type": "multiple-choice",
+          "prompt": "Which keyword creates a variable that cannot be reassigned?",
+          "options": ["let", "var", "const", "static"],
+          "correctAnswer": "const",
+          "explanation": "The 'const' keyword creates a constant variable that cannot be reassigned after its initial declaration. 'let' and 'var' create variables that can be reassigned."
+        }
+      ]
+    },
+    "order": 2
+  },
+  {
+    "id": "3",
+    "title": "Numbers and Strings", 
+    "content": "# Numbers and Strings\n\nLet's dive deeper into two of JavaScript's most commonly used data types: numbers and strings.\n\n## Working with Numbers\n\nJavaScript has only one number type, which can represent both integers and floating-point numbers.\n\n### Basic Math Operations\n- Addition: `+`\n- Subtraction: `-` \n- Multiplication: `*`\n- Division: `/`\n- Modulus (remainder): `%`\n- Exponentiation: `**`\n\n### Useful Number Methods\n- `Math.round()`: Round to nearest integer\n- `Math.floor()`: Round down\n- `Math.ceil()`: Round up\n- `Math.max()`: Find maximum value\n- `Math.min()`: Find minimum value\n- `Math.random()`: Generate random number\n\n## Working with Strings\n\nStrings represent text data and are enclosed in quotes.\n\n### String Creation\n- Single quotes: `'Hello'`\n- Double quotes: `\"Hello\"`\n- Template literals: `` `Hello ${name}` ``\n\n### String Methods\n- `.length`: Get string length\n- `.toUpperCase()`: Convert to uppercase\n- `.toLowerCase()`: Convert to lowercase\n- `.slice()`: Extract part of string",
+    "codeExample": "// Working with Numbers\nlet price = 29.99;\nlet quantity = 3;\nlet total = price * quantity;\n\nconsole.log('Total:', total);  // 89.97\n\n// Math operations\nlet radius = 5;\nlet area = Math.PI * radius ** 2;\nconsole.log('Circle area:', Math.round(area));\n\n// Random numbers\nlet randomNum = Math.random();  // 0 to 1\nlet dice = Math.floor(Math.random() * 6) + 1;  // 1 to 6\nconsole.log('Dice roll:', dice);\n\n// Working with Strings\nlet firstName = 'John';\nlet lastName = 'Doe';\nlet fullName = firstName + ' ' + lastName;  // Concatenation\n\n// Template literals (modern way)\nlet greeting = `Hello, ${firstName}! You are ${age} years old.`;\nconsole.log(greeting);\n\n// String methods\nconsole.log(fullName.length);        // 8\nconsole.log(fullName.toUpperCase()); // \"JOHN DOE\"\nconsole.log(fullName.slice(0, 4));   // \"John\"",
+    "quiz": {
+      "id": "q3",
+      "questions": [
+        {
+          "id": "q3-1",
+          "type": "multiple-choice", 
+          "prompt": "What does Math.floor(4.8) return?",
+          "options": ["4", "5", "4.8", "Error"],
+          "correctAnswer": "4",
+          "explanation": "Math.floor() always rounds DOWN to the nearest integer. So Math.floor(4.8) returns 4, even though 4.8 is closer to 5."
+        }
+      ]
+    },
+    "order": 3
+  },
+  {
+    "id": "10",
+    "title": "Introduction to Python",
+    "content": "# Introduction to Python\n\nPython is a high-level, interpreted programming language known for its simple and readable syntax. It's perfect for beginners and widely used in web development, data science, artificial intelligence, and automation.\n\n## Why Python?\n\n- **Easy to Learn**: Simple, readable syntax\n- **Versatile**: Used in many domains\n- **Large Community**: Extensive libraries and support\n- **Cross-platform**: Runs on Windows, Mac, Linux\n\n## Python Philosophy\n\nPython follows the \"Zen of Python\" principles:\n- Beautiful is better than ugly\n- Explicit is better than implicit\n- Simple is better than complex\n- Readability counts\n\n## Your First Python Program\n\nLet's start with the traditional \"Hello, World!\" program and explore basic Python syntax.",
+    "codeExample": "# Your first Python program\nprint(\"Hello, World!\")\n\n# Python is case-sensitive\nname = \"Python\"\nprint(\"I'm learning\", name)\n\n# Multiple print statements\nprint(\"Python is:\")\nprint(\"- Easy to learn\")\nprint(\"- Powerful\")\nprint(\"- Fun!\")\n\n# Basic calculations\nresult = 2 + 3 * 4\nprint(\"2 + 3 * 4 =\", result)",
+    "quiz": {
+      "id": "q10",
+      "questions": [
+        {
+          "id": "q10-1",
+          "type": "multiple-choice",
+          "prompt": "What function is used to display output in Python?",
+          "options": ["console.log()", "print()", "echo()", "display()"],
+          "correctAnswer": "print()",
+          "explanation": "In Python, the print() function is used to display output to the console. This is different from JavaScript which uses console.log()."
+        }
+      ]
+    },
+    "order": 1
+  },
+  {
+    "id": "19",
+    "title": "HTML Document Structure",
+    "content": "# HTML Document Structure\n\nHTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure and content of web documents using elements and tags.\n\n## Basic HTML Structure\n\nEvery HTML document follows a specific structure:\n\n1. **DOCTYPE Declaration**: Tells the browser which HTML version to use\n2. **HTML Element**: Root element containing all content\n3. **Head Section**: Contains metadata about the document\n4. **Body Section**: Contains the visible content\n\n## Essential HTML Elements\n\n- `<html>`: Root element\n- `<head>`: Document metadata\n- `<title>`: Page title (shown in browser tab)\n- `<meta>`: Additional metadata\n- `<body>`: Main content area\n\n## Understanding Tags and Elements\n\n- **Opening tag**: `<tagname>`\n- **Closing tag**: `</tagname>`\n- **Self-closing tag**: `<tagname />`\n- **Element**: Complete tag with content",
+    "codeExample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>My First Web Page</title>\n</head>\n<body>\n    <h1>Welcome to My Website</h1>\n    <p>This is my first HTML document!</p>\n    \n    <!-- This is a comment -->\n    <p>HTML uses tags to structure content.</p>\n    \n    <h2>About HTML</h2>\n    <p>HTML stands for <strong>HyperText Markup Language</strong>.</p>\n    <p>It's the foundation of all web pages.</p>\n</body>\n</html>",
+    "quiz": {
+      "id": "q19",
+      "questions": [
+        {
+          "id": "q19-1",
+          "type": "multiple-choice",
+          "prompt": "Which element contains the visible content of a web page?",
+          "options": ["<head>", "<html>", "<body>", "<title>"],
+          "correctAnswer": "<body>",
+          "explanation": "The <body> element contains all the visible content of a web page, including text, images, links, and other elements that users can see and interact with."
+        }
+      ]
+    },
+    "order": 1
+  },
+  {
+    "id": "28",
+    "title": "Introduction to React",
+    "content": "# Introduction to React\n\nReact is a JavaScript library for building user interfaces, particularly web applications. Created by Facebook, it allows developers to create reusable UI components and manage application state efficiently.\n\n## What Makes React Special?\n\n- **Component-Based**: Build encapsulated components that manage their own state\n- **Declarative**: Describe what your UI should look like for any given state\n- **Virtual DOM**: Efficient updating and rendering of components\n- **Learn Once, Write Anywhere**: Use React for web, mobile (React Native), and more\n\n## Core Concepts\n\n### Components\nComponents are the building blocks of React applications. They can be:\n- **Function Components**: Simple JavaScript functions that return JSX\n- **Class Components**: ES6 classes that extend React.Component (legacy)\n\n### JSX\nJSX is a syntax extension that looks like HTML but is actually JavaScript. It makes it easy to write and understand React components.\n\n### Props\nProps (properties) are how you pass data from parent components to child components.\n\n### State\nState is how components remember and manage their own data that can change over time.",
+    "codeExample": "// A simple React component\nfunction Welcome() {\n    return (\n        <div>\n            <h1>Hello, React!</h1>\n            <p>Welcome to your first React component.</p>\n        </div>\n    );\n}\n\n// Component with props\nfunction Greeting({ name }) {\n    return <h2>Hello, {name}!</h2>;\n}\n\n// Using components\nfunction App() {\n    return (\n        <div>\n            <Welcome />\n            <Greeting name=\"Alice\" />\n            <Greeting name=\"Bob\" />\n        </div>\n    );\n}\n\n// This is how you'd render the app\n// ReactDOM.render(<App />, document.getElementById('root'));",
+    "quiz": {
+      "id": "q28",
+      "questions": [
+        {
+          "id": "q28-1",
+          "type": "multiple-choice",
+          "prompt": "What is JSX in React?",
+          "options": ["A separate templating language", "JavaScript syntax extension that looks like HTML", "A CSS framework", "A database query language"],
+          "correctAnswer": "JavaScript syntax extension that looks like HTML",
+          "explanation": "JSX is a syntax extension for JavaScript that allows you to write HTML-like code within your JavaScript files. It gets compiled to regular JavaScript function calls."
+        }
+      ]
+    },
+    "order": 1
+  }
+]

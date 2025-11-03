@@ -1,0 +1,224 @@
+[
+  {
+    "id": "1",
+    "title": "JavaScript Fundamentals",
+    "language": "javascript",
+    "difficulty": "beginner",
+    "description": "Master the building blocks of modern web development with JavaScript. Learn variables, functions, objects, and DOM manipulation through hands-on exercises.",
+    "estimatedHours": 25,
+    "chapters": [
+      {
+        "id": "1",
+        "title": "Getting Started with JavaScript",
+        "lessons": [
+          {"id": "1", "title": "What is JavaScript?", "order": 1},
+          {"id": "2", "title": "Variables and Data Types", "order": 2},
+          {"id": "3", "title": "Numbers and Strings", "order": 3}
+        ]
+      },
+      {
+        "id": "2", 
+        "title": "Control Flow and Functions",
+        "lessons": [
+          {"id": "4", "title": "Conditional Statements", "order": 4},
+          {"id": "5", "title": "Loops and Iteration", "order": 5},
+          {"id": "6", "title": "Functions Basics", "order": 6}
+        ]
+      },
+      {
+        "id": "3",
+        "title": "Objects and Arrays", 
+        "lessons": [
+          {"id": "7", "title": "Working with Objects", "order": 7},
+          {"id": "8", "title": "Arrays and Methods", "order": 8},
+          {"id": "9", "title": "DOM Manipulation", "order": 9}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Python Programming Essentials", 
+    "language": "python",
+    "difficulty": "beginner",
+    "description": "Start your coding journey with Python, one of the most versatile programming languages. Perfect for beginners and widely used in data science and web development.",
+    "estimatedHours": 30,
+    "chapters": [
+      {
+        "id": "4",
+        "title": "Python Basics",
+        "lessons": [
+          {"id": "10", "title": "Introduction to Python", "order": 1},
+          {"id": "11", "title": "Variables and Input", "order": 2},
+          {"id": "12", "title": "Data Types and Operations", "order": 3}
+        ]
+      },
+      {
+        "id": "5",
+        "title": "Control Structures",
+        "lessons": [
+          {"id": "13", "title": "If Statements and Conditions", "order": 4},
+          {"id": "14", "title": "While and For Loops", "order": 5},
+          {"id": "15", "title": "Functions and Modules", "order": 6}
+        ]
+      },
+      {
+        "id": "6",
+        "title": "Data Structures",
+        "lessons": [
+          {"id": "16", "title": "Lists and Tuples", "order": 7},
+          {"id": "17", "title": "Dictionaries and Sets", "order": 8},
+          {"id": "18", "title": "File Handling", "order": 9}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "HTML & CSS Web Design",
+    "language": "html",
+    "difficulty": "beginner", 
+    "description": "Create beautiful, responsive websites from scratch. Learn HTML structure and CSS styling to build modern, professional web pages.",
+    "estimatedHours": 20,
+    "chapters": [
+      {
+        "id": "7",
+        "title": "HTML Structure",
+        "lessons": [
+          {"id": "19", "title": "HTML Document Structure", "order": 1},
+          {"id": "20", "title": "Text and Headings", "order": 2},
+          {"id": "21", "title": "Links and Images", "order": 3}
+        ]
+      },
+      {
+        "id": "8",
+        "title": "CSS Styling",
+        "lessons": [
+          {"id": "22", "title": "CSS Selectors and Properties", "order": 4},
+          {"id": "23", "title": "Colors and Typography", "order": 5},
+          {"id": "24", "title": "Box Model and Layout", "order": 6}
+        ]
+      },
+      {
+        "id": "9",
+        "title": "Responsive Design",
+        "lessons": [
+          {"id": "25", "title": "Flexbox Layout", "order": 7},
+          {"id": "26", "title": "CSS Grid System", "order": 8},
+          {"id": "27", "title": "Media Queries", "order": 9}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "React Development Bootcamp",
+    "language": "react", 
+    "difficulty": "intermediate",
+    "description": "Build dynamic, interactive web applications with React. Master components, state management, hooks, and modern React patterns.",
+    "estimatedHours": 45,
+    "chapters": [
+      {
+        "id": "10",
+        "title": "React Fundamentals",
+        "lessons": [
+          {"id": "28", "title": "Introduction to React", "order": 1},
+          {"id": "29", "title": "Components and JSX", "order": 2},
+          {"id": "30", "title": "Props and State", "order": 3}
+        ]
+      },
+      {
+        "id": "11",
+        "title": "Advanced React Patterns",
+        "lessons": [
+          {"id": "31", "title": "React Hooks", "order": 4},
+          {"id": "32", "title": "Context and State Management", "order": 5},
+          {"id": "33", "title": "React Router", "order": 6}
+        ]
+      },
+      {
+        "id": "12",
+        "title": "Building Real Applications",
+        "lessons": [
+          {"id": "34", "title": "API Integration", "order": 7},
+          {"id": "35", "title": "Forms and Validation", "order": 8},
+          {"id": "36", "title": "Testing and Deployment", "order": 9}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Advanced Python Data Science",
+    "language": "python",
+    "difficulty": "advanced",
+    "description": "Dive deep into data analysis, machine learning, and scientific computing with Python. Master NumPy, Pandas, and popular ML libraries.",
+    "estimatedHours": 60,
+    "chapters": [
+      {
+        "id": "13",
+        "title": "Data Analysis Foundations",
+        "lessons": [
+          {"id": "37", "title": "NumPy Arrays and Operations", "order": 1},
+          {"id": "38", "title": "Pandas DataFrames", "order": 2},
+          {"id": "39", "title": "Data Visualization", "order": 3}
+        ]
+      },
+      {
+        "id": "14",
+        "title": "Machine Learning Basics",
+        "lessons": [
+          {"id": "40", "title": "Scikit-learn Introduction", "order": 4},
+          {"id": "41", "title": "Supervised Learning", "order": 5},
+          {"id": "42", "title": "Unsupervised Learning", "order": 6}
+        ]
+      },
+      {
+        "id": "15",
+        "title": "Advanced Topics",
+        "lessons": [
+          {"id": "43", "title": "Deep Learning with TensorFlow", "order": 7},
+          {"id": "44", "title": "Natural Language Processing", "order": 8},
+          {"id": "45", "title": "Model Deployment", "order": 9}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Node.js Backend Development",
+    "language": "nodejs",
+    "difficulty": "intermediate",
+    "description": "Build scalable server-side applications with Node.js. Learn Express.js, databases, authentication, and API development.",
+    "estimatedHours": 40,
+    "chapters": [
+      {
+        "id": "16",
+        "title": "Node.js Fundamentals",
+        "lessons": [
+          {"id": "46", "title": "Node.js Runtime and Modules", "order": 1},
+          {"id": "47", "title": "File System and Async Programming", "order": 2},
+          {"id": "48", "title": "NPM and Package Management", "order": 3}
+        ]
+      },
+      {
+        "id": "17",
+        "title": "Express.js Web Framework",
+        "lessons": [
+          {"id": "49", "title": "Express Server Setup", "order": 4},
+          {"id": "50", "title": "Routing and Middleware", "order": 5},
+          {"id": "51", "title": "Template Engines", "order": 6}
+        ]
+      },
+      {
+        "id": "18",
+        "title": "Database Integration",
+        "lessons": [
+          {"id": "52", "title": "MongoDB and Mongoose", "order": 7},
+          {"id": "53", "title": "RESTful API Design", "order": 8},
+          {"id": "54", "title": "Authentication and Security", "order": 9}
+        ]
+      }
+    ]
+  }
+]
