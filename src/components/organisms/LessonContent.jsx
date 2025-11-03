@@ -33,7 +33,7 @@ useEffect(() => {
             setCurrentQuestionIndex(0);
             setUserAnswers({});
         }
-    }, [lesson?.Id]);
+}, [lesson?.Id]);
 
     if (!lesson) {
         return (

@@ -17,25 +17,21 @@ async getById(id) {
             throw new Error("Lesson ID is required");
         }
         
-// Convert to integer for consistent comparison
+        // Convert to integer for consistent comparison
         const lessonId = parseInt(id, 10);
         if (isNaN(lessonId)) {
             throw new Error(`Invalid lesson ID format: ${id}. Expected a valid number.`);
         }
         
-        // Find lesson with detailed validation
+        // Find lesson with detailed validation - use Id field to match lesson data structure
         const lesson = lessonsData.find(l => {
-            const currentLessonId = parseInt(l.id, 10);
+            const currentLessonId = parseInt(l.Id, 10);
             return currentLessonId === lessonId;
         });
         
         if (!lesson) {
-            throw new Error(`Lesson with ID ${lessonId} not found. Please check if the lesson exists.`);
-        }
-        
-        if (!lesson) {
             // Provide detailed error information for debugging
-            const availableIds = lessonsData.map(l => l.id).join(', ');
+            const availableIds = lessonsData.map(l => l.Id).join(', ');
             throw new Error(`Lesson with ID ${lessonId} not found. Available lesson IDs: [${availableIds}]`);
         }
         
