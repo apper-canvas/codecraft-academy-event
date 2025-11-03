@@ -1,17 +1,18 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
-import { cn } from "@/utils/cn";
+import lessonService from "@/services/api/lessonService";
+import courseService from "@/services/api/courseService";
+import progressService from "@/services/api/progressService";
 import ApperIcon from "@/components/ApperIcon";
-import Button from "@/components/atoms/Button";
 import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
 import Card from "@/components/atoms/Card";
 import ProgressBar from "@/components/atoms/ProgressBar";
 import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
-import courseService from "@/services/api/courseService";
-import progressService from "@/services/api/progressService";
+import { cn } from "@/utils/cn";
 
 const CourseDetail = () => {
     const { courseId } = useParams();
@@ -69,8 +70,26 @@ const CourseDetail = () => {
         }
     };
 
-    const handleLessonClick = (lesson) => {
-        navigate(`/course/${courseId}/lesson/${lesson.id}`);
+const handleLessonClick = async (lesson) => {
+        try {
+            // Validate lesson exists and is accessible
+            if (!lesson || !lesson.id) {
+                toast.error('Invalid lesson selected');
+                return;
+            }
+
+            // Check if lesson exists in the service
+            const lessonExists = await lessonService.getById(lesson.id).catch(() => null);
+            if (!lessonExists) {
+                toast.error('This lesson is not available. Please try another lesson or contact support.');
+                return;
+            }
+
+            navigate(`/course/${courseId}/lesson/${lesson.id}`);
+        } catch (error) {
+            console.error('Error navigating to lesson:', error);
+            toast.error('Unable to access this lesson. Please try again or contact support.');
+        }
     };
 
     if (isLoading) {
@@ -258,10 +277,15 @@ const CourseDetail = () => {
                                 </div>
                                 
                                 <div className="p-6">
-                                    <div className="space-y-3">
+<div className="space-y-3">
                                         {chapter.lessons?.map((lesson, lessonIndex) => {
                                             const isCompleted = userProgress?.completedLessons?.includes(lesson.id);
                                             const isCurrent = userProgress?.lastAccessedLesson === lesson.id;
+                                            
+                                            // Validate lesson data
+                                            if (!lesson || !lesson.id || !lesson.title) {
+                                                return null; // Skip invalid lessons
+                                            }
                                             
                                             return (
                                                 <motion.button
@@ -291,6 +315,11 @@ const CourseDetail = () => {
                                                     </div>
                                                     <div className="flex-1">
                                                         <h4 className="font-medium">{lesson.title}</h4>
+                                                        {!lesson.id && (
+                                                            <span className="text-xs text-gray-400">
+                                                                Coming soon
+                                                            </span>
+                                                        )}
                                                     </div>
                                                     <ApperIcon 
                                                         name="ChevronRight" 

@@ -17,17 +17,21 @@ async getById(id) {
             throw new Error("Lesson ID is required");
         }
         
-        // Convert to integer for consistent comparison
-const lessonId = parseInt(id, 10);
+// Convert to integer for consistent comparison
+        const lessonId = parseInt(id, 10);
         if (isNaN(lessonId)) {
-            throw new Error(`Invalid lesson ID format: ${id}`);
+            throw new Error(`Invalid lesson ID format: ${id}. Expected a valid number.`);
         }
         
-        // Find lesson with detailed logging
+        // Find lesson with detailed validation
         const lesson = lessonsData.find(l => {
-const currentLessonId = parseInt(l.id, 10);
+            const currentLessonId = parseInt(l.id, 10);
             return currentLessonId === lessonId;
         });
+        
+        if (!lesson) {
+            throw new Error(`Lesson with ID ${lessonId} not found. Please check if the lesson exists.`);
+        }
         
         if (!lesson) {
             // Provide detailed error information for debugging
@@ -40,15 +44,25 @@ const currentLessonId = parseInt(l.id, 10);
 
 async getByCourseId(courseId) {
         await delay(250);
+        
+        const parsedCourseId = parseInt(courseId, 10);
+        if (isNaN(parsedCourseId)) {
+            throw new Error(`Invalid course ID format: ${courseId}. Expected a valid number.`);
+        }
+        
         const course = coursesData.find(c => parseInt(c.id) === parseInt(courseId));
         if (!course) {
-            throw new Error("Course not found");
+            throw new Error(`Course with ID ${courseId} not found. Please check if the course exists.`);
         }
         
         const courseLessons = [];
         course.chapters?.forEach(chapter => {
             chapter.lessons?.forEach(lesson => {
-                const fullLesson = lessonsData.find(l => parseInt(l.id) === parseInt(lesson.id));
+const fullLesson = lessonsData.find(l => {
+                    const lessonDataId = parseInt(l.id, 10);
+                    const chapterLessonId = parseInt(lesson.id, 10);
+                    return lessonDataId === chapterLessonId;
+                });
                 if (fullLesson) {
                     courseLessons.push(fullLesson);
                 }
@@ -62,11 +76,20 @@ async getByChapterId(chapterId) {
         await delay(250);
         let chapterLessons = [];
         
+const parsedChapterId = parseInt(chapterId, 10);
+        if (isNaN(parsedChapterId)) {
+            throw new Error(`Invalid chapter ID format: ${chapterId}. Expected a valid number.`);
+        }
+        
         coursesData.forEach(course => {
-            const chapter = course.chapters?.find(c => parseInt(c.id) === parseInt(chapterId));
+            const chapter = course.chapters?.find(c => parseInt(c.id) === parsedChapterId);
             if (chapter) {
                 chapter.lessons?.forEach(lesson => {
-                    const fullLesson = lessonsData.find(l => parseInt(l.id) === parseInt(lesson.id));
+const fullLesson = lessonsData.find(l => {
+                        const lessonDataId = parseInt(l.id, 10);
+                        const chapterLessonId = parseInt(lesson.id, 10);
+                        return lessonDataId === chapterLessonId;
+                    });
                     if (fullLesson) {
                         chapterLessons.push(fullLesson);
                     }
@@ -88,7 +111,12 @@ async getByChapterId(chapterId) {
     },
 
 async update(id, updateData) {
-        await delay(350);
+await delay(350);
+        
+        const parsedId = parseInt(id, 10);
+        if (isNaN(parsedId)) {
+            throw new Error(`Invalid lesson ID format: ${id}. Expected a valid number.`);
+        }
         const index = lessonsData.findIndex(l => parseInt(l.id) === parseInt(id));
         if (index === -1) {
             throw new Error("Lesson not found");
@@ -99,7 +127,12 @@ async update(id, updateData) {
 
 async delete(id) {
         await delay(300);
-        const index = lessonsData.findIndex(l => parseInt(l.id) === parseInt(id));
+const parsedId = parseInt(id, 10);
+        if (isNaN(parsedId)) {
+            throw new Error(`Invalid lesson ID format: ${id}. Expected a valid number.`);
+        }
+        
+        const index = lessonsData.findIndex(l => parseInt(l.id) === parsedId);
         if (index === -1) {
             throw new Error("Lesson not found");
         }
