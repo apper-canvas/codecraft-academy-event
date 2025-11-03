@@ -9,18 +9,18 @@ const lessonService = {
         return [...lessonsData];
     },
 
-    async getById(id) {
+async getById(id) {
         await delay(200);
-        const lesson = lessonsData.find(l => l.id === id);
+        const lesson = lessonsData.find(l => parseInt(l.id) === parseInt(id));
         if (!lesson) {
             throw new Error("Lesson not found");
         }
         return { ...lesson };
     },
 
-    async getByCourseId(courseId) {
+async getByCourseId(courseId) {
         await delay(250);
-        const course = coursesData.find(c => c.id === courseId);
+        const course = coursesData.find(c => parseInt(c.id) === parseInt(courseId));
         if (!course) {
             throw new Error("Course not found");
         }
@@ -28,7 +28,7 @@ const lessonService = {
         const courseLessons = [];
         course.chapters?.forEach(chapter => {
             chapter.lessons?.forEach(lesson => {
-                const fullLesson = lessonsData.find(l => l.id === lesson.id);
+                const fullLesson = lessonsData.find(l => parseInt(l.id) === parseInt(lesson.id));
                 if (fullLesson) {
                     courseLessons.push(fullLesson);
                 }
@@ -38,15 +38,15 @@ const lessonService = {
         return courseLessons;
     },
 
-    async getByChapterId(chapterId) {
+async getByChapterId(chapterId) {
         await delay(250);
         let chapterLessons = [];
         
         coursesData.forEach(course => {
-            const chapter = course.chapters?.find(c => c.id === chapterId);
+            const chapter = course.chapters?.find(c => parseInt(c.id) === parseInt(chapterId));
             if (chapter) {
                 chapter.lessons?.forEach(lesson => {
-                    const fullLesson = lessonsData.find(l => l.id === lesson.id);
+                    const fullLesson = lessonsData.find(l => parseInt(l.id) === parseInt(lesson.id));
                     if (fullLesson) {
                         chapterLessons.push(fullLesson);
                     }
@@ -67,9 +67,9 @@ const lessonService = {
         return { ...newLesson };
     },
 
-    async update(id, updateData) {
+async update(id, updateData) {
         await delay(350);
-        const index = lessonsData.findIndex(l => l.id === id);
+        const index = lessonsData.findIndex(l => parseInt(l.id) === parseInt(id));
         if (index === -1) {
             throw new Error("Lesson not found");
         }
@@ -77,9 +77,9 @@ const lessonService = {
         return { ...lessonsData[index] };
     },
 
-    async delete(id) {
+async delete(id) {
         await delay(300);
-        const index = lessonsData.findIndex(l => l.id === id);
+        const index = lessonsData.findIndex(l => parseInt(l.id) === parseInt(id));
         if (index === -1) {
             throw new Error("Lesson not found");
         }
