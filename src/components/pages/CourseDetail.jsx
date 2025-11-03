@@ -72,20 +72,21 @@ const CourseDetail = () => {
 
 const handleLessonClick = async (lesson) => {
         try {
-            // Validate lesson exists and is accessible - use Id field to match course data structure
-            if (!lesson || !lesson.Id) {
+            // Validate lesson exists and is accessible - handle both Id and id fields for compatibility
+            const lessonId = lesson?.Id || lesson?.id;
+            if (!lesson || !lessonId) {
                 toast.error('Invalid lesson selected');
                 return;
             }
 
             // Check if lesson exists in the service
-            const lessonExists = await lessonService.getById(lesson.Id).catch(() => null);
+            const lessonExists = await lessonService.getById(lessonId).catch(() => null);
             if (!lessonExists) {
                 toast.error('This lesson is not available. Please try another lesson or contact support.');
                 return;
             }
 
-            navigate(`/course/${courseId}/lesson/${lesson.Id}`);
+            navigate(`/course/${courseId}/lesson/${lessonId}`);
         } catch (error) {
             console.error('Error navigating to lesson:', error);
             toast.error('Unable to access this lesson. Please try again or contact support.');
@@ -278,8 +279,9 @@ const handleLessonClick = async (lesson) => {
                                 
                                 <div className="p-6">
 <div className="space-y-3">
-                                        {chapter.lessons?.map((lesson, lessonIndex) => {
-                                            const isCompleted = userProgress?.completedLessons?.includes(lesson.id);
+{chapter.lessons?.map((lesson, lessonIndex) => {
+                                            const lessonId = lesson?.Id || lesson?.id;
+                                            const isCompleted = userProgress?.completedLessons?.includes(lessonId);
                                             const isCurrent = userProgress?.lastAccessedLesson === lesson.id;
                                             
                                             // Validate lesson data
@@ -289,7 +291,7 @@ const handleLessonClick = async (lesson) => {
                                             
                                             return (
                                                 <motion.button
-                                                    key={lesson.id}
+key={lesson?.Id || lesson?.id}
                                                     onClick={() => handleLessonClick(lesson)}
                                                     className={cn(
                                                         "w-full text-left p-4 rounded-xl transition-all duration-200 flex items-center space-x-4 group",
@@ -315,7 +317,7 @@ const handleLessonClick = async (lesson) => {
                                                     </div>
                                                     <div className="flex-1">
                                                         <h4 className="font-medium">{lesson.title}</h4>
-                                                        {!lesson.id && (
+{!(lesson?.Id || lesson?.id) && (
                                                             <span className="text-xs text-gray-400">
                                                                 Coming soon
                                                             </span>
